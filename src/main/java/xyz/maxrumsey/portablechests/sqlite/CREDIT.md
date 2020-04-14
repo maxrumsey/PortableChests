@@ -1,0 +1,1 @@
+Credit to pablo67340 on the Spigot Forums (https://www.spigotmc.org/threads/how-to-sqlite.56847/) for supplying this SQLITE integration code! Big thanks from me.

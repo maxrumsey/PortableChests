@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="PortableChests:jar">
+    <output-path>$PROJECT_DIR$/../../../server/plugins</output-path>
+    <root id="archive" name="PortableChests.jar">
+      <element id="module-output" name="PortableChests" />
+    </root>
+  </artifact>
+</component>

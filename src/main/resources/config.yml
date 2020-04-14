@@ -1,0 +1,14 @@
+# Settings for the SQLite DB, just leave as normal for now.
+
+# DEFAULT:
+# SQLite:
+#   Filename: 'database'
+SQLite:
+  Filename: 'database'
+
+# Must be divisible by 9
+# Note: If you change this, it will not effect previously created chests
+
+# DEFAULT:
+# ChestSize: 45
+ChestSize: 45
