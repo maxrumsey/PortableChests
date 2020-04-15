@@ -112,7 +112,6 @@ public class InventorySerializer {
      * @throws IOException
      */
     public static Inventory fromBase64(String data, String title) throws IOException {
-        System.out.println(data.length());
         try {
             ByteArrayInputStream inputStream = new ByteArrayInputStream(Base64Coder.decodeLines(data));
             BukkitObjectInputStream dataInput = new BukkitObjectInputStream(inputStream);
