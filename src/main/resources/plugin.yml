@@ -1,34 +1,25 @@
 name: PortableChests
-version: "1.1.1"
+version: "2.0.0"
 main: xyz.maxrumsey.portablechests.PortableChests
-api-version: 1.13
+api-version: "1.13"
 authors: [ExiFlame]
-description: A bukkit plugin that allows users to have 2 virtual chests, opened by command.
+description: A bukkit plugin that allows users to have virtual chests, opened by command.
 website: https://www.maxrumsey.xyz
 
 permissions:
   PortableChests.*:
     children:
       PortableChests.chest: true
-      PortableChests.chest2: true
-      PortableChests.admin: true
+      PortableChests.inspect: true
   PortableChests.chest:
     description: Allows you to execute /chest
-  PortableChests.chest2:
-    description: Allows you to execute /chest2
-  PortableChests.admin:
-    description: Allows you to execute /chestsee and /chest2see, to see into other player's chests.
+  PortableChests.inspect:
+    description: Allows you to execute /chestpeek, to see into other player's chests.
 
 commands:
   chest:
-    description: "Open your first chest."
-    usage: "Syntax error. Usage: /<command>"
-  chest2:
-    description: "Open your second chest."
-    usage: "Syntax error. Usage: /<command>"
-  chestsee:
-    description: "Opens the first chest of a specified user."
-    usage: "Syntax error. Usage: /<command> PlayerName"
-  chest2see:
-    description: "Opens the second chest of a specified user."
-    usage: "Syntax error. Usage: /<command> PlayerName"
+    description: "Open the specified chest."
+    usage: "Syntax error. Usage: /<command> <chest_name>"
+  inspect:
+    description: "Opens the specified chest of the specified user."
+    usage: "Syntax error. Usage: /<command> <user> <chest_name>"

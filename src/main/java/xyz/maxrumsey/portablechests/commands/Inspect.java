@@ -9,10 +9,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import xyz.maxrumsey.portablechests.PortableChests;
 
-public class Chest2See implements CommandExecutor {
+public class Inspect implements CommandExecutor {
     PortableChests pluginInst;
 
-    public Chest2See(PortableChests p) {
+    public Inspect(PortableChests p) {
         this.pluginInst = p;
     }
 
@@ -23,18 +23,20 @@ public class Chest2See implements CommandExecutor {
 
             Player player = (Player) sender;
 
-            if (!player.hasPermission("PortableChests.admin")) {
-                sender.sendMessage(ChatColor.DARK_RED + "You do not have access to that command.");
+            String name = args[1];
+
+            if (!player.hasPermission("PortableChests.inspect." + name) && !player.isOp() && !player.hasPermission("PortableChests.inspect") && !player.hasPermission("PortableChests.inspect.*")) {
+                sender.sendMessage(ChatColor.DARK_RED + "You do not have access to that chest.");
                 return true;
             }
             String uuid;
 
-            if (args.length == 0) {
+            if (args.length != 2) {
                 return false;
             }
             Player target = Bukkit.getPlayer(args[0]);
 
-            if (target instanceof Player) {
+            if (target != null) {
                 uuid = target.getUniqueId().toString();
             } else {
                 sender.sendMessage(ChatColor.RED + "It doesn't look like this player is online. Looking at offline players...");
@@ -47,7 +49,7 @@ public class Chest2See implements CommandExecutor {
                 }
             }
 
-            pluginInst.CommandRunner.chest(player, uuid, 2);
+            pluginInst.CommandRunner.chest(player, uuid, args[1]);
         } else {
             System.out.println("You need to be a player to execute this command.");
         }

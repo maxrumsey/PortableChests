@@ -21,15 +21,18 @@ public class InventoryClosed implements Listener {
     void onInventoryClosed(InventoryCloseEvent e) {
         Inventory inventory = e.getInventory();
         for (WaitingInventory w: pluginInstance.waitingInventories) {
+
             if (inventory.equals(w.inventory)) {
                 String inventoryStr = InventorySerializer.toBase64(e.getInventory());
                 Database database = pluginInstance.getDatabase();
-                database.setChest(w.owner, w.id, inventoryStr);
+                database.setChest(w.owner, w.name, inventoryStr);
+
                 while (pluginInstance.waitingInventories.contains(w)) {
                     pluginInstance.waitingInventories.remove(w);
                 }
                 break;
             }
+
         }
 
     }

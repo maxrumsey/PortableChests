@@ -15,38 +15,34 @@ public class CommandRunner {
         this.pluginInst = plugin;
     }
 
-    public void chest(Player sender, String target, Integer chestId) {
+    /*
+     * ToDo: Add permission check
+     * ToDo: Add size check / config.
+     */
+    public void chest(Player sender, String target, String chestName) {
         Database database = pluginInst.getDatabase();
 
-        database.createChests(target);
+        database.createChest(target, chestName);
 
-        String title;
-        if (chestId == 1) {
-            title = "Chest One";
-        } else {
-            title = "Chest Two";
-        }
+        String title = "Chest: " + chestName;
 
-        String pre_inventory = database.getChest(target, chestId);
-        Integer size = pluginInst.getConfig().getInt("ChestSize");
+        String pre_inventory = database.getChest(target, chestName);
+        int size = pluginInst.getConfig().getInt("ChestSize");
         Inventory vault = Bukkit.createInventory(sender, size, title);
 
-        InventorySerializer serializer = new InventorySerializer();
-        if (pre_inventory == "" || pre_inventory == null || pre_inventory.isEmpty() || pre_inventory == "NOT_FOUND") {
-        } else {
-
+        if (!(pre_inventory.isEmpty() || pre_inventory.equals("NOT_FOUND"))) {
             try {
-                vault = serializer.fromBase64(pre_inventory, title);
+                vault = InventorySerializer.fromBase64(pre_inventory, title);
             } catch (IOException e) {
                 e.printStackTrace();
-                sender.sendMessage(ChatColor.RED + "We failed to parse your chest. Please ask your server administrator to check the logs.");
+                sender.sendMessage(ChatColor.RED + "We failed to parse your chest. Please ask your server administrator to check the logs for errors.");
                 return;
             }
         }
 
         sender.openInventory(vault);
 
-        WaitingInventory waitingInventory = new WaitingInventory(target, vault, chestId);
+        WaitingInventory waitingInventory = new WaitingInventory(target, vault, chestName);
 
         pluginInst.waitingInventories.add(waitingInventory);
     }
