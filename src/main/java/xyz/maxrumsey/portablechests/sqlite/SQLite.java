@@ -20,8 +20,7 @@ public class SQLite extends Database{
     public String SQLiteCreateInventoryUserTable = "CREATE TABLE IF NOT EXISTS chests (" +
             "`player` varchar(36) NOT NULL," +
             "`name` text NOT NULL," +
-            "`contents` text NOT NULL," +
-            "PRIMARY KEY (`player`)" +
+            "`contents` text NOT NULL" +
             ");";
 
 
