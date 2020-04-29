@@ -5,11 +5,14 @@ This plugin gives users the ability to open virtual chests. Everything is config
 
 ## Benefits
 * Easy to understand yet powerful permissions
+
 The permissions are very simple and easy to setup, with minimal headache. 
 The permissions work with your favourite permission client, so it's use and complexity is completely up to you!
 * Highly configurable and flexible
+
 Virtually everything can be configured, from the `permission-denied` message or size, for each chest!
 * Fast storage via SQLite
+
 Don't resort to having a directory full with hundreds of .yaml files, easily broken by one wrong keystroke! The chest information is stored using the SQLite format.
 
 ## Commands:
@@ -45,3 +48,5 @@ Allows the user to open all the chests of any user.
 
 ## Links
 [Spigot Listing](https://www.spigotmc.org/resources/portablechests.77408/)
+
+[Bukkit Listing](https://dev.bukkit.org/projects/PortableChests)
