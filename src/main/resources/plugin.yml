@@ -14,7 +14,7 @@ permissions:
   PortableChests.chest:
     description: Allows you to execute /chest
   PortableChests.inspect:
-    description: Allows you to execute /chestpeek, to see into other player's chests.
+    description: Allows you to execute /inspect, to see into other player's chests.
 
 commands:
   chest:
