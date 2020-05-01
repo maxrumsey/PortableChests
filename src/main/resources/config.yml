@@ -6,9 +6,8 @@
 SQLite:
   Filename: 'database'
 
-# Must be divisible by 9
-# Note: If you change this, it will not effect previously created chests
-
-# DEFAULT:
-# ChestSize: 45
-ChestSize: 45
+Chests:
+  vault:
+    rows: 5
+    name: "Your vault!"
+    permission-denied: "Sorry, you do not have permission to access this vault."

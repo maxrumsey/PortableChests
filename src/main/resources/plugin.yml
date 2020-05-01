@@ -12,9 +12,11 @@ permissions:
       PortableChests.chest: true
       PortableChests.inspect: true
   PortableChests.chest:
-    description: Allows you to execute /chest
+    description: Allows access to the /chest command
   PortableChests.inspect:
-    description: Allows you to execute /inspect, to see into other player's chests.
+    description: Allows access to the /inspect command
+  PortableChests.admin:
+    description: Allows access to the /setchest command
 
 commands:
   chest:
@@ -23,3 +25,7 @@ commands:
   inspect:
     description: "Opens the specified chest of the specified user."
     usage: "Syntax error. Usage: /<command> <user> <chest_name>"
+  chestconfig:
+    description: "Updates the configuration of a specific chest"
+    usage: "Syntax error. Usage: /<command> help"
+    permission: "PortableChests.admin"

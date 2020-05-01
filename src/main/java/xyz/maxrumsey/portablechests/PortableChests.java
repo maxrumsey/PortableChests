@@ -5,6 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.maxrumsey.portablechests.commands.Chest;
+import xyz.maxrumsey.portablechests.commands.ChestConfig;
 import xyz.maxrumsey.portablechests.commands.Inspect;
 import xyz.maxrumsey.portablechests.listeners.InventoryClosed;
 import xyz.maxrumsey.portablechests.sqlite.Database;
@@ -36,6 +37,7 @@ public final class PortableChests extends JavaPlugin {
 
         this.getCommand("chest").setExecutor(new Chest(this));
         this.getCommand("inspect").setExecutor(new Inspect(this));
+        this.getCommand("chestconfig").setExecutor(new ChestConfig(this));
 
         getServer().getPluginManager().registerEvents(new InventoryClosed(this), this);
 
