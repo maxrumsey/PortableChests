@@ -10,4 +10,9 @@ Chests:
   vault:
     rows: 5
     name: "Your vault!"
-    permission-denied: "Sorry, you do not have permission to access this vault."
+    permission-denied: "Sorry, you do not have permission to access this chest."
+
+default:
+  rows: 5
+  name: "Portable Chest"
+  permission-denied: "Sorry, you do not have permission to access this chest."

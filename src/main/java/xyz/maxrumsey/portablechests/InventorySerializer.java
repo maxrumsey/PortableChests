@@ -9,6 +9,7 @@ import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.EOFException;
 import java.io.IOException;
 
 public class InventorySerializer {
@@ -19,7 +20,6 @@ public class InventorySerializer {
 
             // Write the size of the inventory
             dataOutput.writeInt(inventory.getSize());
-
             // Save every element in the list
             for (int i = 0; i < inventory.getSize(); i++) {
                 dataOutput.writeObject(inventory.getItem(i));
@@ -32,17 +32,24 @@ public class InventorySerializer {
             throw new IllegalStateException("Unable to save item stacks.", e);
         }
     }
-    public static Inventory fromBase64(String data, String title) throws IOException {
+    public static Inventory fromBase64(String data, String title, Integer size) throws IOException {
         try {
+
             ByteArrayInputStream inputStream = new ByteArrayInputStream(Base64Coder.decodeLines(data));
             BukkitObjectInputStream dataInput = new BukkitObjectInputStream(inputStream);
-            Inventory inventory = Bukkit.getServer().createInventory(null, dataInput.readInt(), title);
+            dataInput.readInt();
+            Inventory inventory = Bukkit.getServer().createInventory(null, size, title);
 
             // Read the serialized inventory
+            System.out.println(inventory.getSize() + "!!!" + size);
             for (int i = 0; i < inventory.getSize(); i++) {
-                inventory.setItem(i, (ItemStack) dataInput.readObject());
+                System.out.println(i);
+                try {
+                    inventory.setItem(i, (ItemStack) dataInput.readObject());
+                } catch (EOFException e) {
+                    break;
+                }
             }
-
             dataInput.close();
             return inventory;
         } catch (ClassNotFoundException e) {

@@ -24,15 +24,15 @@ public class CommandRunner {
 
         database.createChest(target, chestName);
 
-        String title = "Chest: " + chestName;
+        String title = pluginInst.getConfig().getString("Chests." + chestName + ".name", pluginInst.getConfig().getString("default.name", "Chest"));
 
         String pre_inventory = database.getChest(target, chestName);
-        int size = pluginInst.getConfig().getInt("ChestSize");
+        int size = pluginInst.getConfig().getInt("Chests." + chestName + ".rows", pluginInst.getConfig().getInt("default.size", 5)) * 9;
         Inventory vault = Bukkit.createInventory(sender, size, title);
 
         if (!(pre_inventory.isEmpty() || pre_inventory.equals("NOT_FOUND"))) {
             try {
-                vault = InventorySerializer.fromBase64(pre_inventory, title);
+                vault = InventorySerializer.fromBase64(pre_inventory, title, size);
             } catch (IOException e) {
                 e.printStackTrace();
                 sender.sendMessage(ChatColor.RED + "We failed to parse your chest. Please ask your server administrator to check the logs for errors.");

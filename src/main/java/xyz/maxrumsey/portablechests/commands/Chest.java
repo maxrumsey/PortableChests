@@ -25,13 +25,10 @@ public class Chest implements CommandExecutor {
 
             String name = args[0];
             Player player = (Player) sender;
-
             if (!player.hasPermission("PortableChests.chest." + name) && !player.isOp() && !player.hasPermission("PortableChests.chest.*")) {
-                sender.sendMessage(ChatColor.DARK_RED + "You do not have access to that chest.");
+                sender.sendMessage(ChatColor.DARK_RED + pluginInst.getConfig().getString("Chests." + name + ".permission-denied", pluginInst.getConfig().getString("default.permission-denied", "You not have permission to access this chest.")));
                 return true;
             }
-
-
 
             pluginInst.CommandRunner.chest(player, player.getUniqueId().toString(), name);
 

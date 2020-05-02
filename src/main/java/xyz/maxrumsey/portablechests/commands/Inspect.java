@@ -26,7 +26,7 @@ public class Inspect implements CommandExecutor {
             String name = args[1];
 
             if (!player.hasPermission("PortableChests.inspect." + name) && !player.isOp() && !player.hasPermission("PortableChests.inspect") && !player.hasPermission("PortableChests.inspect.*")) {
-                sender.sendMessage(ChatColor.DARK_RED + "You do not have access to that chest.");
+                sender.sendMessage(ChatColor.DARK_RED + "You do not have permission to inspect this chest!");
                 return true;
             }
             String uuid;
