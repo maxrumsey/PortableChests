@@ -58,6 +58,38 @@ public class ChestConfig implements CommandExecutor {
                 pluginInst.saveConfig();
                 sender.sendMessage("Successfully updated chest: " + args[1] + "!");
                 break;
+            case "default":
+                if (args[1] == null ||
+                        args[2] == null) return false;
+
+                valueSlice = Arrays.copyOfRange(args, 2, args.length);
+                values = String.join(" ", valueSlice);
+                switch (args[1]) {
+                    case "name":
+                    case "permission-denied":
+                        config.set("default." + args[1], values);
+                        break;
+                    case "rows":
+                        int rows;
+
+                        try {
+                            rows = Integer.parseInt(args[2]);
+                            if (rows < 1 || rows > 6) {
+                                sender.sendMessage(ChatColor.RED + "Invalid value. The number of rows must be greater than 0 and less than 7.");
+                            }
+                        } catch (NumberFormatException e) {
+                            return false;
+                        }
+                        config.set("default." + args[1], rows);
+                        break;
+                    default:
+                        sendHelp(sender);
+                        break;
+                }
+
+                pluginInst.saveConfig();
+                sender.sendMessage("Successfully updated the default configuration.");
+                break;
             case "reload":
                 pluginInst.reloadConfig();
                 sender.sendMessage("Successfully reloaded the configuration file!");
