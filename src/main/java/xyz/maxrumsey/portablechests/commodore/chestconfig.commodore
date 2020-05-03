@@ -1,0 +1,3 @@
+chestconfig {
+   chest_name: brigadier:string;
+}

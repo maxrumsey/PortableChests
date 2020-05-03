@@ -1,0 +1,5 @@
+inspect {
+   username brigadier:string single_word {
+       chest_name: brigadier:string single_word;
+   }
+}

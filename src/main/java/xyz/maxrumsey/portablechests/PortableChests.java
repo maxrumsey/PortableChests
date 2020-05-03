@@ -1,5 +1,7 @@
 package xyz.maxrumsey.portablechests;
 
+import me.lucko.commodore.Commodore;
+import me.lucko.commodore.CommodoreProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -47,6 +49,11 @@ public final class PortableChests extends JavaPlugin {
 
         logger.info("PortableChests has loaded successfully.");
 
+        if (CommodoreProvider.isSupported()) {
+            Commodore commodore = CommodoreProvider.getCommodore(this);
+
+            BrigadierSetup.setup(commodore, this);
+        }
     }
 
     public Database getDatabase() {
