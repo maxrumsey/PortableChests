@@ -1,0 +1,28 @@
+chestconfig {
+    reload;
+    help;
+    set {
+        chest_name brigadier:string single_word {
+            rows {
+                value brigadier:integer;
+            }
+            name {
+                value brigadier:string greedy_phrase;
+            }
+            permission-denied {
+                value brigadier:string greedy_phrase;
+            }
+        }
+    }
+    default {
+        rows {
+            value brigadier:integer;
+        }
+        name {
+            value brigadier:string greedy_phrase;
+        }
+        permission-denied {
+            value brigadier:string greedy_phrase;
+        }
+    }
+}
