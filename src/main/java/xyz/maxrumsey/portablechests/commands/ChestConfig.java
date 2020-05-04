@@ -44,6 +44,7 @@ public class ChestConfig implements CommandExecutor {
                             rows = Integer.parseInt(args[3]);
                             if (rows < 1 || rows > 6) {
                                 sender.sendMessage(ChatColor.RED + "Invalid value. The number of rows must be greater than 0 and less than 7.");
+                                return true;
                             }
                         } catch (NumberFormatException e) {
                             return false;
