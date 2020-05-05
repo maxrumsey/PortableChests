@@ -106,6 +106,13 @@ public class ChestConfig implements CommandExecutor {
         sender.sendMessage("-----------------");
         sender.sendMessage(ChatColor.AQUA + "/chestconfig help " + ChatColor.RESET + "- Shows this help message.");
         sender.sendMessage(ChatColor.AQUA + "/chestconfig reload " + ChatColor.RESET + "- Reloads the plugin configuration.");
-        sender.sendMessage(ChatColor.AQUA + "/chestconfig set <chest_name> <key> <value> " + ChatColor.RESET + "- Sets a value in the configuration");
+        sender.sendMessage(ChatColor.AQUA + "/chestconfig set <chest_name> rows <value> " + ChatColor.RESET + "- Sets the number of rows the chest has.");
+        sender.sendMessage(ChatColor.AQUA + "/chestconfig set <chest_name> name <value> " + ChatColor.RESET + "- Sets the name of the chest.");
+        sender.sendMessage(ChatColor.AQUA + "/chestconfig set <chest_name> permission-denied <value> " + ChatColor.RESET + "- Sets the permission-denied message for the chest.");
+        sender.sendMessage(ChatColor.AQUA + "/chestconfig default rows <value> " + ChatColor.RESET + "- Sets the number of rows the default chest has.");
+        sender.sendMessage(ChatColor.AQUA + "/chestconfig default name <value> " + ChatColor.RESET + "- Sets the name the default chest has.");
+        sender.sendMessage(ChatColor.AQUA + "/chestconfig default permission-denied <value> " + ChatColor.RESET + "- Sets the permission-denied message of the default chest.");
+
+
     }
 }
