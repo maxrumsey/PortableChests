@@ -41,9 +41,7 @@ public class InventorySerializer {
             Inventory inventory = Bukkit.getServer().createInventory(null, size, title);
 
             // Read the serialized inventory
-            System.out.println(inventory.getSize() + "!!!" + size);
             for (int i = 0; i < inventory.getSize(); i++) {
-                System.out.println(i);
                 try {
                     inventory.setItem(i, (ItemStack) dataInput.readObject());
                 } catch (EOFException e) {

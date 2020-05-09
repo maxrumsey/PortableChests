@@ -30,7 +30,7 @@ public final class PortableChests extends JavaPlugin {
         Logger logger = getLogger();
         config.options().copyDefaults();
         saveDefaultConfig();
-
+        reloadConfig();
         if (config.contains("ChestSize")) {
             Bukkit.getConsoleSender().sendMessage("[PortableChests] " + ChatColor.RED + "It looks like you are using an old version of the configuration file!");
             logger.warning("If you have recently updated PortableChests, simply delete the config.yaml file in the PortableChests folder and reload to recreate the config file automatically.");

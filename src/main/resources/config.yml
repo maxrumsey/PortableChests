@@ -1,8 +1,21 @@
-# Settings for the SQLite DB, just leave as normal for now.
-
-# DEFAULT:
+# PORTABLE CHESTS
+# Copyright Max Rumsey - 2020
+#
+# Example Config:
 # SQLite:
-#   Filename: 'database'
+#  Filename: 'database'
+#
+# Chests:
+#  vault: <-- Name of chest
+#    rows: 5 <-- Rows available
+#    name: "Your vault!" <-- Name of the chest in the GUI
+#    permission-denied: "Sorry, you do not have permission to access this chest." <-- Permission-denied message
+#
+# default:
+#  rows: 5 <-- Default rows of each chest
+#  name: "Portable Chest" <-- Default Name of Chest
+#  permission-denied: "Sorry, you do not have permission to access this chest." <-- Default permission denied message
+
 SQLite:
   Filename: 'database'
 
