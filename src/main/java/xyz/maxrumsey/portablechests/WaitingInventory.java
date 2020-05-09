@@ -6,11 +6,11 @@ public class WaitingInventory {
 
     public String owner;
     public Inventory inventory;
-    public Integer id;
+    public String name;
 
-    public WaitingInventory(String o, Inventory i, Integer id) {
+    public WaitingInventory(String o, Inventory i, String name) {
         this.owner = o;
         this.inventory = i;
-        this.id = id;
+        this.name = name;
     }
 }

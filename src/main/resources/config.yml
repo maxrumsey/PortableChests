@@ -1,14 +1,31 @@
-# Settings for the SQLite DB, just leave as normal for now.
-
-# DEFAULT:
+# PORTABLE CHESTS
+# Copyright Max Rumsey - 2020
+#
+# Example Config:
 # SQLite:
-#   Filename: 'database'
+#  Filename: 'database'
+#
+# Chests:
+#  vault: <-- Name of chest
+#    rows: 5 <-- Rows available
+#    name: "Your vault!" <-- Name of the chest in the GUI
+#    permission-denied: "Sorry, you do not have permission to access this chest." <-- Permission-denied message
+#
+# default:
+#  rows: 5 <-- Default rows of each chest
+#  name: "Portable Chest" <-- Default Name of Chest
+#  permission-denied: "Sorry, you do not have permission to access this chest." <-- Default permission denied message
+
 SQLite:
   Filename: 'database'
 
-# Must be divisible by 9
-# Note: If you change this, it will not effect previously created chests
+Chests:
+  vault:
+    rows: 5
+    name: "Your vault!"
+    permission-denied: "Sorry, you do not have permission to access this chest."
 
-# DEFAULT:
-# ChestSize: 45
-ChestSize: 45
+default:
+  rows: 5
+  name: "Portable Chest"
+  permission-denied: "Sorry, you do not have permission to access this chest."
