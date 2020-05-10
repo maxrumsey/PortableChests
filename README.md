@@ -15,6 +15,10 @@ Virtually everything can be configured, from the `permission-denied` message or 
 
 Don't resort to having a directory full with hundreds of .yaml files, easily broken by one wrong keystroke! The chest information is stored using the SQLite format.
 
+* Brigadier Support
+
+Brigadier autocompletes commands, saving you from pulling up the command reference, overall making the plugin much easier to use and more efficient.
+
 ## Setup
 1. Download the .jar file either from the [releases page](https://github.com/maxrumsey/PortableChests/releases) or from the [Spigot Listing](https://www.spigotmc.org/resources/portablechests.77408/).
 2. Place the .jar file into your `/plugins/` directory. 
