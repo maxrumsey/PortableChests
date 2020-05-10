@@ -7,13 +7,27 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import xyz.maxrumsey.portablechests.PortableChests;
 
+/** The /chest command
+ */
 public class Chest implements CommandExecutor {
     PortableChests pluginInst;
 
-    public Chest(PortableChests p) {
-        this.pluginInst = p;
+    /** Chest Command Class
+     *
+     * @param plugin The Plugin Object
+     */
+    public Chest(PortableChests plugin) {
+        this.pluginInst = plugin;
     }
 
+    /** Runs when /chest is executed
+     *
+     * @param sender The sender of the command
+     * @param command The command object
+     * @param label The label
+     * @param args String Array of Arguments
+     * @return !Syntax_Error
+     */
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
@@ -25,11 +39,14 @@ public class Chest implements CommandExecutor {
 
             String name = args[0];
             Player player = (Player) sender;
+
+            // Permission Check
             if (!player.hasPermission("PortableChests.chest." + name) && !player.isOp() && !player.hasPermission("PortableChests.chest.*")) {
                 sender.sendMessage(ChatColor.DARK_RED + pluginInst.getConfig().getString("Chests." + name + ".permission-denied", pluginInst.getConfig().getString("default.permission-denied", "You not have permission to access this chest.")));
                 return true;
             }
 
+            // Sends to Command Runner
             pluginInst.CommandRunner.chest(player, player.getUniqueId().toString(), name);
 
         } else {

@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 
+/** Handles connection to the DB
+ *
+ */
 public class SQLite extends Database{
     String dbname;
     public SQLite(PortableChests instance){

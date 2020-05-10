@@ -12,7 +12,16 @@ import java.io.ByteArrayOutputStream;
 import java.io.EOFException;
 import java.io.IOException;
 
+/** Class responsible for serialisation of Inventory to and from Base64 encoded String.
+ */
 public class InventorySerializer {
+
+    /** Serializes inventory into Base64
+     *
+     * @param inventory The inventory object
+     * @return Returns a base64 encoded string of the Inventory.
+     * @throws IllegalStateException
+     */
     public static String toBase64(Inventory inventory) throws IllegalStateException {
         try {
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -32,6 +41,15 @@ public class InventorySerializer {
             throw new IllegalStateException("Unable to save item stacks.", e);
         }
     }
+
+    /** Handles deserialization of the base64 string
+     *
+     * @param data The Base64 encoded string.
+     * @param title The name of the chest, visible in the GUI.
+     * @param size The number of columns present in the chest
+     * @return Returns the inventory object
+     * @throws IOException
+     */
     public static Inventory fromBase64(String data, String title, Integer size) throws IOException {
         try {
 
