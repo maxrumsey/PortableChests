@@ -42,7 +42,7 @@ Permission: PortableChests.inspect.<chest_name>
 
 This command opens the chest specified from the user specified.
 
-Example: `/inspect ExiFlame vault4`
+Example: `/inspect Notch vault4`
 #### /chestconfig
 
 Permission: PortableChests.admin
